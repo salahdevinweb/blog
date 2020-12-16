@@ -22,3 +22,9 @@ Route::get('/posts', function () {
      $post = \App\Models\Post::all();
      return $post;
 });
+
+Route::get('/posts', function () {
+     $post = \App\Models\Post::all();
+     return $post;
+});
+
