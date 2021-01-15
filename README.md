@@ -1,62 +1,334 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Tabs
 
-## About Laravel
+----
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Basic
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Tabs make it easy to switch between different views. Default activate first tab.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+:::demo
+```html
+<at-tabs>
+  <at-tab-pane label="Tab1" name="name1">
+    <p>Content of Tab Pane 1</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab2" name="name2">
+    <p>Content of Tab Pane 2</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab3" name="name3">
+    <p>Content of Tab Pane 3</p>
+  </at-tab-pane>
+</at-tabs>
+```
+:::
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Disabled
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Disabled a tab.
 
-## Laravel Sponsors
+:::demo
+```html
+<at-tabs>
+  <at-tab-pane label="Tab1" name="name1">
+    <p>Content of Tab Pane 1</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab2" name="name2">
+    <p>Content of Tab Pane 2</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab3" name="name3" :disabled="true">
+    <p>Content of Tab Pane 3</p>
+  </at-tab-pane>
+</at-tabs>
+```
+:::
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Icon
 
-### Premium Partners
+The Tab with Icon.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+:::demo
+```html
+<at-tabs>
+  <at-tab-pane label="Tab1" name="name1" icon="icon-github">
+    <p>Content of Tab Pane 1</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab2" name="name2" icon="icon-twitter">
+    <p>Content of Tab Pane 2</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab3" name="name3" icon="icon-pocket">
+    <p>Content of Tab Pane 3</p>
+  </at-tab-pane>
+</at-tabs>
+```
+:::
 
-## Contributing
+## Extra content
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+You can add extra actions to the right of Tabs by adding the slot extra.
 
-## Code of Conduct
+:::demo
+```html
+<at-tabs>
+  <at-tab-pane label="Tab1" name="name1">
+    <p>Content of Tab Pane 1</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab2" name="name2">
+    <p>Content of Tab Pane 2</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab3" name="name3">
+    <p>Content of Tab Pane 3</p>
+  </at-tab-pane>
+  <div slot="extra">
+    <at-button size="small">Extra Content</at-button>
+  </div>
+</at-tabs>
+```
+:::
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Mini tab
 
-## Security Vulnerabilities
+Set the property `size` to `small` can be displayed as a mini-type.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+:::demo
+```html
+<at-tabs size="small">
+  <at-tab-pane label="Tab1" name="name1">
+    <p>Content of Tab Pane 1</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab2" name="name2">
+    <p>Content of Tab Pane 2</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab3" name="name3">
+    <p>Content of Tab Pane 3</p>
+  </at-tab-pane>
+  <div slot="extra">
+    <at-button size="small">Extra Content</at-button>
+  </div>
+</at-tabs>
+```
+:::
 
-## License
+## Card type tab
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Set the property `type` to `card` can display the card style.
+
+:::demo
+```html
+<at-tabs type="card" v-model="activeKey">
+  <at-tab-pane label="Tab1" name="name1">
+    <p>Content of Tab Pane 1</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab2" name="name2">
+    <p>Content of Tab Pane 2</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab3" name="name3">
+    <p>Content of Tab Pane 3</p>
+  </at-tab-pane>
+  <div slot="extra">
+    <at-button size="small">Extra Content</at-button>
+  </div>
+</at-tabs>
+```
+:::
+
+## Mini Card tab
+
+Mini card tab.
+
+:::demo
+```html
+<at-tabs type="card" v-model="activeKey" size="small">
+  <at-tab-pane label="Tab1" name="name1">
+    <p>Content of Tab Pane 1</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab2" name="name2">
+    <p>Content of Tab Pane 2</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab3" name="name3">
+    <p>Content of Tab Pane 3</p>
+  </at-tab-pane>
+  <div slot="extra">
+    <at-button size="small">Extra Content</at-button>
+  </div>
+</at-tabs>
+```
+:::
+
+## Do not use animation
+
+Animating can be disabled by setting the property `animated` to `false`.
+
+:::demo
+```html
+<at-tabs :animated="false" v-model="activeKey">
+  <at-tab-pane label="Tab1" name="name1">
+    <p>Content of Tab Pane 1</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab2" name="name2">
+    <p>Content of Tab Pane 2</p>
+  </at-tab-pane>
+  <at-tab-pane label="Tab3" name="name3">
+    <p>Content of Tab Pane 3</p>
+  </at-tab-pane>
+</at-tabs>
+```
+:::
+
+## Add & close tab
+
+Set the property `closable` to `false` can disable close. But you should delete `at-tab-pane` manually by listen to `on-tab-remove` event.
+
+:::demo
+```html
+<at-tabs :animated="false" value="tab6" closable @on-tab-remove="removeHandle">
+  <at-tab-pane
+    v-for="(item, index) in tabList" :key="index"
+    :label="item.label" :name="item.name" :unclosable="index === 0 ? true : false">
+    <p>{{ item.content }}</p>
+  </at-tab-pane>
+  <div slot="extra">
+    <at-button size="small" @click="addHandle">Add</at-button>
+  </div>
+</at-tabs>
+
+<script>
+  export default {
+    data () {
+      return {
+        tabList: [{
+          label: 'Tab1',
+          name: 'tab1',
+          content: 'tab1 content'
+        }, {
+          label: 'Tab2',
+          name: 'tab2',
+          content: 'tab2 content'
+        }, {
+          label: 'Tab3',
+          name: 'tab3',
+          content: 'tab3 content'
+        }, {
+          label: 'Tab4',
+          name: 'tab4',
+          content: 'tab4 content'
+        }, {
+          label: 'Tab5',
+          name: 'tab5',
+          content: 'tab5 content'
+        }, {
+          label: 'Tab6',
+          name: 'tab6',
+          content: 'tab6 content'
+        }],
+        count: 7
+      }
+    },
+    methods: {
+      addHandle () {
+        const count = this.count++
+        this.tabList.push({
+          label: `Tab${count}`,
+          name: `tab${count}`,
+          content: `Tab${count} content`,
+        })
+      },
+      removeHandle (data) {
+        this.tabList.splice(data.index, 1)
+      }
+    }
+  }
+</script>
+```
+:::
+
+
+## Tabs Props
+| Property      | Description       | Type      | Accepted values             | Default  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+| value | name of the selected tab. Use v-model to enable a two-way binding | String | - | name of first tab |
+| type | type of Tab | String | `line` `card` | `line` |
+| size | size of Tab | String | `default` `small` | `default` |
+| closable | whether the tab can be closed | Boolean | - | false |
+| animated | whether to use animation when switching tabs | Boolean | - | true |
+
+## Tabs Events
+
+| Event Name   | Description     | 	Return Value  |
+|---------- |-------------- |---------- |
+| on-change | triggers when switching tab | the current tab `{index, name}` |
+| on-tab-remove | triggers when deleting tab | the deleted tab `{index, name}` |
+
+## Tabs slot
+
+| Name      | Description |
+|----------|-------- |
+| extra | the contents of the attachment on the right side of the tab |
+| - | tab-pane components and extra content |
+
+## TabPane Props
+
+| Property     | Description      | Type    | Accepted values            | Default  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+| name | identifier corresponding to the activeName of Tabs, representing the alias of the tab-pane | String / Number | - | ordinal number of the tab-pane in the sequence, e.g. the first tab-pane is 1 |
+| label | title of the tab | String | - | - |
+| icon | icon of the tab | String | - | - |
+| disabled | whether to disable the tab | Boolean | - | false |
+| closable | whether the tab can be closed, the priority is higher than the Tabs `closable` | Boolean | - | true |
+
+## TabPane slot
+
+| Name     | Description |
+|----------|-------- |
+| - | content of the tab |
+
+
+<script>
+export default {
+  data () {
+    return {
+      activeKey: 'name3',
+      tabList: [{
+        label: 'Tab1',
+        name: 'tab1',
+        content: 'tab1 content'
+      }, {
+        label: 'Tab2',
+        name: 'tab2',
+        content: 'tab2 content'
+      }, {
+        label: 'Tab3',
+        name: 'tab3',
+        content: 'tab3 content'
+      }, {
+        label: 'Tab4',
+        name: 'tab4',
+        content: 'tab4 content'
+      }, {
+        label: 'Tab5',
+        name: 'tab5',
+        content: 'tab5 content'
+      }, {
+        label: 'Tab6',
+        name: 'tab6',
+        content: 'tab6 content'
+      }],
+      count: 7
+    }
+  },
+  methods: {
+    addHandle () {
+      const count = this.count++
+      this.tabList.push({
+        label: `Tab${count}`,
+        name: `tab${count}`,
+        content: `Tab${count} content`,
+      })
+    },
+    removeHandle (data) {
+      this.tabList.splice(data.index, 1)
+    }
+  }
+}
+</script>
